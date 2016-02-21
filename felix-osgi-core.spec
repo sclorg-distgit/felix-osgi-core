@@ -6,7 +6,7 @@
 
 Name:    %{?scl_prefix}%{pkg_name}
 Version: 1.4.0
-Release: 15.10%{?dist}
+Release: 15.11%{?dist}
 Summary: Felix OSGi R4 Core Bundle
 
 License: ASL 2.0
@@ -16,8 +16,8 @@ Source0: http://www.apache.org/dist/felix/%{bundle}-%{version}-project.tar.gz
 BuildArch: noarch
 
 BuildRequires: %{?scl_prefix_java_common}maven-local
-BuildRequires: maven30-felix-parent
-BuildRequires: maven30-maven-surefire-provider-junit
+BuildRequires: %{?scl_prefix}felix-parent
+BuildRequires: %{?scl_prefix}maven-surefire-provider-junit
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
 
 %description
@@ -31,7 +31,7 @@ API documentation for %{pkg_name}.
 
 %prep
 %setup -q -n %{bundle}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 
 %mvn_alias :%{bundle} org.osgi:%{bundle}
@@ -39,13 +39,13 @@ set -e -x
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -57,6 +57,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.4.0-15.11
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 1.4.0-15.10
 - maven33 rebuild
 
