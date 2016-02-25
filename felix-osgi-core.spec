@@ -6,7 +6,7 @@
 
 Name:    %{?scl_prefix}%{pkg_name}
 Version: 1.4.0
-Release: 15.11%{?dist}
+Release: 15.12%{?dist}
 Summary: Felix OSGi R4 Core Bundle
 
 License: ASL 2.0
@@ -15,7 +15,7 @@ Source0: http://www.apache.org/dist/felix/%{bundle}-%{version}-project.tar.gz
 
 BuildArch: noarch
 
-BuildRequires: %{?scl_prefix_java_common}maven-local
+BuildRequires: %{?scl_prefix}maven-local
 BuildRequires: %{?scl_prefix}felix-parent
 BuildRequires: %{?scl_prefix}maven-surefire-provider-junit
 BuildRequires: %{?scl_prefix_java_common}javapackages-tools
@@ -57,6 +57,9 @@ set -e -x
 %doc LICENSE
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 1.4.0-15.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 1.4.0-15.11
 - maven33 rebuild #2
 
