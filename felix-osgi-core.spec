@@ -5,7 +5,7 @@
 
 Name:           %{?scl_prefix}felix-osgi-core
 Version:        1.4.0
-Release:        21.1%{?dist}
+Release:        21.2%{?dist}
 Summary:        Felix OSGi R4 Core Bundle
 License:        ASL 2.0
 URL:            http://felix.apache.org/site/apache-felix-osgi-core.html
@@ -46,6 +46,9 @@ export LC_ALL=en_US.UTF-8
 %license LICENSE NOTICE
 
 %changelog
+* Thu Jun 22 2017 Michael Simacek <msimacek@redhat.com> - 1.4.0-21.2
+- Mass rebuild 2017-06-22
+
 * Wed Jun 21 2017 Java Maintainers <java-maint@redhat.com> - 1.4.0-21.1
 - Automated package import and SCL-ization
 
